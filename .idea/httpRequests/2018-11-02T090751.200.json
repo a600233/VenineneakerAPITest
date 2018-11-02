@@ -1,0 +1,11 @@
+{
+  "message": "Selling Info NOT DELETED!",
+  "errmsg": {
+    "message": "Cast to number failed for value \"asds02\" at path \"_id\" for model \"Selling\"",
+    "name": "CastError",
+    "stringValue": "\"asds02\"",
+    "kind": "number",
+    "value": "asds02",
+    "path": "_id"
+  }
+}

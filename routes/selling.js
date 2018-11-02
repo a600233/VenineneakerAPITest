@@ -29,7 +29,7 @@ router.findOneById = (req, res) => {
 
     res.setHeader('Content-Type', 'application/json');
 
-    Selling.find({ "selling_id" : req.params.selling_id },function(err, selling) {
+    Selling.find({ "_id" : req.params._id },function(err, selling) {
         if (err)
             res.json({ message: 'Selling Info NOT Found!', errmsg : err } );
         else
@@ -118,7 +118,7 @@ router.addSelling = (req, res) => {
     res.setHeader('Content-Type', 'application/json');
 
     var selling = new Selling();
-	selling.selling_id = req.body.selling_id;
+	selling._id = req.body._id;
     selling.brand = req.body.brand;
     selling.series = req.body.series;
     selling.name = req.body.name;
@@ -137,7 +137,7 @@ router.addSelling = (req, res) => {
 }
 router.deleteSelling = (req, res) => {
 
-    Selling.findByIdAndRemove(req.params.selling_id, function(err) {
+    Selling.findByIdAndRemove(req.params._id, function(err) {
         if (err)
             res.json({ message: 'Selling Info NOT DELETED!', errmsg : err } );
         else

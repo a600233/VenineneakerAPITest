@@ -52,7 +52,7 @@ describe('Donations', function (){
 	describe('POST /selling', function () {
         it('should return confirmation message and update db', function(done) {
             let selling = {            
-	selling_id:"S000002",
+	_id:1000002,
     brand: "Under Armour",
     series: "CURRY 4",
     name: "White Black",
@@ -84,10 +84,11 @@ describe('Donations', function (){
                 });
         });
     });
-	describe('DELETE /selling/:selling_id',  function() {
+	
+	describe('DELETE /selling/:_id',  function() {
         it('should return confirmation message of deleting and update ', function(done) {
             chai.request(server)
-                .delete('/selling/S000002')
+                .delete('/selling/1000002')
                 .end(function(err, res) {
                     expect(res).to.have.status(200);
                     expect(res.body).to.have.property('message').equal('Selling Info Successfully Deleted!' );
@@ -102,10 +103,23 @@ describe('Donations', function (){
                         return { size: selling.size,
                             article_number: selling.article_number };
                     }  );
-                        expect(result).to.include( { size: 41, selling_price: 280 } );
-						expect(result).to.include( { size: 42, selling_price: 395 } );
+						expect(res.body.length).to.equal(2);
+						expect(result).to.include( { size: 42, article_number: '555088-403'} );
                     done();
                 });
         });
 		 });
+		 
+		 
+		 describe('DELETE /selling/:_id',  function() {
+	  it('should return fault and a message for invalid selling id',function(done){
+				chai.request(server)
+				.delete('/selling/a000002')
+				.end(function(err, res){
+					expect(res).to.have.status(200);
+					expect(res.body).to.have.property('message').equal('Selling Info NOT DELETED!');
+					done();
+				});
+			});
+		});
 });

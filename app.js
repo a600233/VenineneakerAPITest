@@ -39,7 +39,7 @@ app.put('/donations/:_id/vote', selling.incrementSellingAmount);
 
 app.get('/account',account.findAllAccount);
 app.post('/account',account.addAccount);
-app.delete('/account/:_id', account.deleteAccount);
+app.delete('/account/:account_id', account.deleteAccount);
 app.get('/account/:account_id',account.findOneByAccountId);
 app.get('/account/an/:account_name',account.findAccountByAccountName);
 app.get('/account/s_a/show',account.findSellingInfoByAccount);
@@ -47,7 +47,7 @@ app.get('/account/b_a/show',account.findBuyingInfoByAccount);
 
 app.get('/order',order.findAllOrder);
 app.post('/order',order.addOrder);
-app.delete('/order/:_id', order.deleteOrder);
+app.delete('/order/:order_id', order.deleteOrder);
 app.get('/order/:_id',order.findOrderById);
 app.get('/order/b_n/:account_name',order.findOrderByBuyerName);
 app.put('/order/:_id/amount',order.incrementAmounts);

@@ -22,5 +22,17 @@
     "selling_price": 395,
     "account_name": "JIE_Bao",
     "__v": 0
+  },
+  {
+    "selling_amount": 1,
+    "_id": "5bdca303bcd42f2e545b9999",
+    "brand": "Under Armour",
+    "series": "CURRY 4",
+    "name": "White Black",
+    "size": 38,
+    "article_number": "1298306-102",
+    "selling_price": 140,
+    "account_name": "Yan.Liu",
+    "__v": 0
   }
 ]
