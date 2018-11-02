@@ -1,0 +1,153 @@
+[
+  {
+    "_id": "5bc9f57bb90d3f16f8d4873e",
+    "account_name": "JIE_Bao",
+    "gender": "Male",
+    "__v": 0,
+    "Selling Info:": [
+      {
+        "_id": "5bbc7e17aae02f1914a8cf20",
+        "brand": "Nike",
+        "series": "React Element 87",
+        "name": "Undercover Light Beige Chalk",
+        "size": 41,
+        "article_number": "BQ2718-200",
+        "selling_price": 280,
+        "account_name": "JIE_Bao",
+        "__v": 0
+      },
+      {
+        "_id": "5bbc7effaae02f1914a8cf21",
+        "brand": "Nike",
+        "series": "Air Jordan 1 Retro High",
+        "name": "Game Royal",
+        "size": 42,
+        "article_number": "555088-403",
+        "selling_price": 395,
+        "account_name": "JIE_Bao",
+        "__v": 0
+      },
+      {
+        "_id": "5bc77e96b295b12ab01be042",
+        "brand": "Adidas",
+        "series": "Yeezy 350 V2",
+        "name": "Black Red",
+        "size": 41,
+        "article_number": "CP9652",
+        "selling_price": 690,
+        "account_name": "JIE_Bao",
+        "__v": 0
+      }
+    ],
+    "Order Info:": [
+      {
+        "_id": "5bcb56551e67e8451cac3316",
+        "buyer_account_name": "ZiTing-Wang",
+        "seller_account_name": "JIE_Bao",
+        "brand": "Nike",
+        "series": "React Element 87",
+        "name": "Undercover Light Beige Chalk",
+        "size": 41,
+        "selling_price": 280,
+        "amount": 1,
+        "shipping_address": "Ireland, Waterford, Inner Ring Road, Riverwalk 219C",
+        "order_time": "2018-09-10T23:00:00.000Z",
+        "__v": 0
+      },
+      {
+        "_id": "5bcb58211e67e8451cac3317",
+        "buyer_account_name": "Yan.Liu",
+        "seller_account_name": "JIE_Bao",
+        "brand": "Nike",
+        "series": "Air Jordan 1 Retro High",
+        "name": "Game Royal",
+        "size": 42,
+        "selling_price": 395,
+        "amount": 1,
+        "shipping_address": "Ireland, Waterford, Inner Ring Road, Riverwalk 219A",
+        "order_time": "2018-09-20T23:00:00.000Z",
+        "__v": 0
+      }
+    ]
+  },
+  {
+    "_id": "5bca31e14adddc0f38ea997e",
+    "account_name": "Yan.Liu",
+    "gender": "Male",
+    "__v": 0,
+    "Selling Info:": [
+      {
+        "_id": "5bbc97c0e89a713838d0a593",
+        "brand": "Under Armour",
+        "series": "CURRY 4",
+        "name": "White Black",
+        "size": 38,
+        "article_number": "1298306-102",
+        "selling_price": 140,
+        "account_name": "Yan.Liu",
+        "__v": 0
+      }
+    ],
+    "Order Info:": []
+  },
+  {
+    "_id": "5bca33564adddc0f38ea997f",
+    "account_name": "ZiTing-Wang",
+    "gender": "Male",
+    "__v": 0,
+    "Selling Info:": [
+      {
+        "_id": "5bbc988de89a713838d0a594",
+        "brand": "Adidas",
+        "series": "Yeezy 350 V2",
+        "name": "Black Red",
+        "size": 45,
+        "article_number": "CP9652",
+        "selling_price": 730,
+        "account_name": "ZiTing-Wang",
+        "__v": 0
+      }
+    ],
+    "Order Info:": []
+  },
+  {
+    "_id": "5bcfa875d2e5a03a386cd185",
+    "account_name": "Eminem",
+    "gender": "Male",
+    "__v": 0,
+    "Selling Info:": [
+      {
+        "_id": "5bc5adbb5b57e940f8b29397",
+        "brand": "Adidas",
+        "series": "Yeezy 350 V2",
+        "name": "Black Red",
+        "size": 41,
+        "article_number": "CP9652",
+        "selling_price": 700,
+        "account_name": "Eminem",
+        "__v": 0
+      }
+    ],
+    "Order Info:": []
+  },
+  {
+    "_id": "5bd04cea923ae9245c895e77",
+    "account_name": "Eminem",
+    "gender": "Male",
+    "__v": 0,
+    "Selling Info:": [
+      {
+        "_id": "5bc5adbb5b57e940f8b29397",
+        "brand": "Adidas",
+        "series": "Yeezy 350 V2",
+        "name": "Black Red",
+        "size": 41,
+        "article_number": "CP9652",
+        "selling_price": 700,
+        "account_name": "Eminem",
+        "__v": 0
+      }
+    ],
+    "Order Info:": []
+  }
+]

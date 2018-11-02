@@ -1,0 +1,98 @@
+[
+  {
+    "selling_amount": 1,
+    "_id": "5bbc7e17aae02f1914a8cf20",
+    "brand": "Nike",
+    "series": "React Element 87",
+    "name": "Undercover Light Beige Chalk",
+    "size": 41,
+    "article_number": "BQ2718-200",
+    "selling_price": 280,
+    "account_name": "JIE_Bao",
+    "__v": 0
+  },
+  {
+    "selling_amount": 1,
+    "_id": "5bbc7effaae02f1914a8cf21",
+    "brand": "Nike",
+    "series": "Air Jordan 1 Retro High",
+    "name": "Game Royal",
+    "size": 42,
+    "article_number": "555088-403",
+    "selling_price": 395,
+    "account_name": "JIE_Bao",
+    "__v": 0
+  },
+  {
+    "selling_amount": 1,
+    "_id": "5bbc97c0e89a713838d0a593",
+    "brand": "Under Armour",
+    "series": "CURRY 4",
+    "name": "White Black",
+    "size": 38,
+    "article_number": "1298306-102",
+    "selling_price": 140,
+    "account_name": "Yan.Liu",
+    "__v": 0
+  },
+  {
+    "selling_amount": 1,
+    "_id": "5bbc988de89a713838d0a594",
+    "brand": "Adidas",
+    "series": "Yeezy 350 V2",
+    "name": "Black Red",
+    "size": 45,
+    "article_number": "CP9652",
+    "selling_price": 730,
+    "account_name": "ZiTing-Wang",
+    "__v": 0
+  },
+  {
+    "selling_amount": 1,
+    "_id": "5bc5adbb5b57e940f8b29397",
+    "brand": "Adidas",
+    "series": "Yeezy 350 V2",
+    "name": "Black Red",
+    "size": 41,
+    "article_number": "CP9652",
+    "selling_price": 700,
+    "account_name": "Eminem",
+    "__v": 0
+  },
+  {
+    "selling_amount": 1,
+    "_id": "5bc77e96b295b12ab01be042",
+    "brand": "Adidas",
+    "series": "Yeezy 350 V2",
+    "name": "Black Red",
+    "size": 41,
+    "article_number": "CP9652",
+    "selling_price": 690,
+    "account_name": "JIE_Bao",
+    "__v": 0
+  },
+  {
+    "selling_amount": 1,
+    "_id": "5bc795b849563d0fc0d7f4b2",
+    "brand": "New Balance",
+    "series": "990v4",
+    "name": "Kith Grey",
+    "size": 43.5,
+    "article_number": "M990GL4",
+    "selling_price": 120,
+    "account_name": "Marshall.Yin",
+    "__v": 0
+  },
+  {
+    "selling_amount": 1,
+    "_id": "5bc79bb52133ee2e847ab4d6",
+    "brand": "Converse",
+    "series": "One Star Ox",
+    "name": "Tyler the Creator Gold Le Fleur Mono (Blue)",
+    "size": 43,
+    "article_number": "162131C",
+    "selling_price": 180,
+    "account_name": "James.Jebbia",
+    "__v": 0
+  }
+]

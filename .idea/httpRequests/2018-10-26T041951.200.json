@@ -1,0 +1,14 @@
+{
+  "message": "Sneaker Info Successfully Added!",
+  "data": {
+    "_id": "5bd330963a87770e70f2ab41",
+    "brand": "Adidas",
+    "series": "Yeezy 700",
+    "name": "Mauve",
+    "color": "Mauve",
+    "original_price": 300,
+    "article_number": "EE9614",
+    "release_date": "2018-10-27T00:00:00.000Z",
+    "__v": 0
+  }
+}

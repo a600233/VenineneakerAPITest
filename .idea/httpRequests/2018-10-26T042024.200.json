@@ -1,0 +1,68 @@
+[
+  {
+    "_id": "5bcda0ca43483f3574e6ddb0",
+    "brand": "Nike",
+    "series": "Air Jordan 1 Retro High",
+    "name": "Game Royal",
+    "color": "Game Royal/Black-Summit White",
+    "original_price": 160,
+    "article_number": "555088-403",
+    "release_date": "2018-03-24T00:00:00.000Z",
+    "__v": 0
+  },
+  {
+    "_id": "5bcdfde6e290e408b02d1242",
+    "brand": "Nike",
+    "series": "React Element 87",
+    "name": "Undercover Light Beige Chalk",
+    "color": "Light Biege Chalk/Signal Blue",
+    "original_price": 180,
+    "article_number": "BQ2718-200",
+    "release_date": "2018-09-13T00:00:00.000Z",
+    "__v": 0
+  },
+  {
+    "_id": "5bcdff93e290e408b02d1243",
+    "brand": "Under Armour",
+    "series": "CURRY 4",
+    "name": "White Black",
+    "color": "White/Black",
+    "original_price": 130,
+    "article_number": "1298306-102",
+    "release_date": "2017-10-27T00:00:00.000Z",
+    "__v": 0
+  },
+  {
+    "_id": "5bcdfffbe290e408b02d1244",
+    "brand": "Adidas",
+    "series": "Yeezy 350 V2",
+    "name": "Black Red",
+    "color": "Core Black/Red",
+    "original_price": 220,
+    "article_number": "CP9652",
+    "release_date": "2017-02-11T00:00:00.000Z",
+    "__v": 0
+  },
+  {
+    "_id": "5bce006ae290e408b02d1245",
+    "brand": "New Balance",
+    "series": "990v4",
+    "name": "Kith Grey",
+    "color": "Grey/White",
+    "original_price": 175,
+    "article_number": "M990GL4",
+    "release_date": "2018-08-21T00:00:00.000Z",
+    "__v": 0
+  },
+  {
+    "_id": "5bce00c0e290e408b02d1246",
+    "brand": "Converse",
+    "series": "One Star Ox",
+    "name": "Tyler the Creator Gold Le Fleur Mono (Blue)",
+    "color": "Limoges/White",
+    "original_price": 100,
+    "article_number": "162131C",
+    "release_date": "2018-04-26T00:00:00.000Z",
+    "__v": 0
+  }
+]

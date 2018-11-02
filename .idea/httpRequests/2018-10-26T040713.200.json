@@ -1,0 +1,30 @@
+[
+  {
+    "amount": 1,
+    "_id": "5bcb56551e67e8451cac3316",
+    "buyer_account_name": "ZiTing-Wang",
+    "seller_account_name": "JIE_Bao",
+    "brand": "Nike",
+    "series": "React Element 87",
+    "name": "Undercover Light Beige Chalk",
+    "size": 41,
+    "selling_price": 280,
+    "shipping_address": "Ireland, Waterford, Inner Ring Road, Riverwalk 219C",
+    "order_time": "2018-09-10T23:00:00.000Z",
+    "__v": 0
+  },
+  {
+    "amount": 1,
+    "_id": "5bcb58211e67e8451cac3317",
+    "buyer_account_name": "Yan.Liu",
+    "seller_account_name": "JIE_Bao",
+    "brand": "Nike",
+    "series": "Air Jordan 1 Retro High",
+    "name": "Game Royal",
+    "size": 42,
+    "selling_price": 395,
+    "shipping_address": "Ireland, Waterford, Inner Ring Road, Riverwalk 219A",
+    "order_time": "2018-09-20T23:00:00.000Z",
+    "__v": 0
+  }
+]
