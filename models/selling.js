@@ -1,7 +1,8 @@
 let mongoose = require('mongoose');
 
 let SellingSchema = new mongoose.Schema({
-        brand: String,
+        selling_id: String,
+		brand: String,
         series: String,
         name: String,
         size: Number,

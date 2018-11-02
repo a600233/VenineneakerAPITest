@@ -5,7 +5,7 @@ let mongoose = require('mongoose');
 //mongoose.connect('mongodb://localhost:27017/sellingdb');
 
 let db = mongoose.connection;
-var mongodbUri ='mongodb://a600233:cs748596123@ds119692.mlab.com:19692/heroku_kcg1tlsl';
+var mongodbUri ='mongodb://a600233:cs748596123@ds225703.mlab.com:25703/sellingdb';
 mongoose.connect(mongodbUri);
 db.on('error', function (err) {
     console.log('Unable to Connect to [ ' + db.name + ' ]', err);

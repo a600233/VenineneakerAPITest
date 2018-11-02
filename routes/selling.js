@@ -5,7 +5,7 @@ let mongoose = require('mongoose');
 //mongoose.connect('mongodb://localhost:27017/sellingdb');
 
 let db = mongoose.connection;
-var mongodbUri ='mongodb://a600233:cs748596123@ds119692.mlab.com:19692/heroku_kcg1tlsl';
+var mongodbUri ='mongodb://a600233:cs748596123@ds225703.mlab.com:25703/sellingdb';
 mongoose.connect(mongodbUri);
 db.on('error', function (err) {
     console.log('Unable to Connect to [ ' + db.name + ' ]', err);
@@ -29,7 +29,7 @@ router.findOneById = (req, res) => {
 
     res.setHeader('Content-Type', 'application/json');
 
-    Selling.find({ "_id" : req.params._id },function(err, selling) {
+    Selling.find({ "selling_id" : req.params.selling_id },function(err, selling) {
         if (err)
             res.json({ message: 'Selling Info NOT Found!', errmsg : err } );
         else
@@ -99,7 +99,7 @@ router.findSellingSneakerInfoByPrice = (req, res) => {
 }
 router.incrementSellingAmount = (req, res) => {
 
-    Selling.findById(req.params._id, function(err,selling) {
+    Selling.findById(req.params.selling_id, function(err,selling) {
         if (err)
             res.json({ message: 'Selling Info NOT Found!', errmsg : err } );
         else {
@@ -118,7 +118,7 @@ router.addSelling = (req, res) => {
     res.setHeader('Content-Type', 'application/json');
 
     var selling = new Selling();
-
+	selling.selling_id = req.body.selling_id;
     selling.brand = req.body.brand;
     selling.series = req.body.series;
     selling.name = req.body.name;
@@ -137,7 +137,7 @@ router.addSelling = (req, res) => {
 }
 router.deleteSelling = (req, res) => {
 
-    Selling.findByIdAndRemove(req.params._id, function(err) {
+    Selling.findByIdAndRemove(req.params.selling_id, function(err) {
         if (err)
             res.json({ message: 'Selling Info NOT DELETED!', errmsg : err } );
         else
