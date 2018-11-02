@@ -49,4 +49,63 @@ describe('Donations', function (){
 });
         });
     });
+	describe('POST /selling', function () {
+        it('should return confirmation message and update db', function(done) {
+            let selling = {            
+	selling_id:"S000002",
+    brand: "Under Armour",
+    series: "CURRY 4",
+    name: "White Black",
+    size: 38,
+    article_number: "1298306-102",
+    selling_price: 140,
+    account_name: "Yan.Liu",
+            };
+            chai.request(server)
+                .post('/selling')
+                .send(selling)
+                .end(function(err, res) {
+                    expect(res).to.have.status(200);
+                    expect(res.body).to.have.property('message').equal('Selling Info Successfully Added!' );
+                    done();
+                });
+        });
+        after(function  (done) {
+            chai.request(server)
+                .get('/selling')
+                .end(function(err, res) {
+                    let result = _.map(res.body, (selling) => {
+                        return { size: selling.size,
+                            article_number: selling.article_number };
+                    }  );
+					 expect(res.body.length).to.equal(3);
+                    expect(result).to.include( { size: 38, article_number: '1298306-102' } );
+                    done();
+                });
+        });
+    });
+	describe('DELETE /selling/:selling_id',  function() {
+        it('should return confirmation message of deleting and update ', function(done) {
+            chai.request(server)
+                .delete('/selling/S000002')
+                .end(function(err, res) {
+                    expect(res).to.have.status(200);
+                    expect(res.body).to.have.property('message').equal('Selling Info Successfully Deleted!' );
+                    done();
+                });
+        });
+        after(function  (done) {
+            chai.request(server)
+                .get('/selling')
+                .end(function(err, res) {
+                    let result = _.map(res.body, (selling) => {
+                        return { size: selling.size,
+                            article_number: selling.article_number };
+                    }  );
+                        expect(result).to.include( { size: 41, selling_price: 280 } );
+						expect(result).to.include( { size: 42, selling_price: 395 } );
+                    done();
+                });
+        });
+		 });
 });
