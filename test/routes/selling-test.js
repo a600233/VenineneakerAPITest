@@ -9,28 +9,7 @@ chai.use(require('chai-things'));
 let _ = require('lodash' );
 
 describe('Donations', function (){
-    // TODO
-  /*beforeEach(function(){
-        while(selling.length > 0) {
-            datastore.pop();
-        }
-      datastore.push(
-            {brand: 'Nike', series: 'React Element 87', name: 'Undercover Light Beige Chalk', size: 41,article_number:'BQ2718-200',selling_price:280,account_name:'JIE_Bao'}
-        );
-      datastore.push(
-            {brand: 'Nike', series: 'Air Jordan 1 Retro High', name: 'Game Royal', size: 42,article_number:'555088-403',selling_price:395,account_name:'JIE_Bao'}
-        );
-    });*/
-	/*let selling = {
-                brand: 'Nike',
-                series: 'React Element 87',
-                name: 'Undercover Light Beige Chalk',
-                size: 42.5,
-                article_number:'BQ2718-200',
-                selling_price:299,
-                account_name:'JIE_Bao'
-            };
-            chai.request(server).post('/selling').send(selling);*/
+  
     describe('GET /selling',  () => {
         it('should return all the selling in an array', function(done) {
             chai.request(server)
@@ -38,7 +17,7 @@ describe('Donations', function (){
              .end(function(err, res) {
     expect(res).to.have.status(200);
     expect(res.body).to.be.a('array');
-    expect(res.body.length).to.equal(2);
+    expect(res.body.length).to.equal(3);
     let result = _.map(res.body, (selling) => {
         return { size: selling.size,
             selling_price: selling.selling_price } 
@@ -60,6 +39,7 @@ describe('Donations', function (){
     article_number: "1298306-102",
     selling_price: 140,
     account_name: "Yan.Liu",
+	selling_amount: 1,
             };
             chai.request(server)
                 .post('/selling')
@@ -78,7 +58,7 @@ describe('Donations', function (){
                         return { size: selling.size,
                             article_number: selling.article_number };
                     }  );
-					 expect(res.body.length).to.equal(3);
+					 expect(res.body.length).to.equal(4);
                     expect(result).to.include( { size: 38, article_number: '1298306-102' } );
                     done();
                 });
@@ -103,7 +83,7 @@ describe('Donations', function (){
                         return { size: selling.size,
                             article_number: selling.article_number };
                     }  );
-						expect(res.body.length).to.equal(2);
+						expect(res.body.length).to.equal(3);
 						expect(result).to.include( { size: 42, article_number: '555088-403'} );
                     done();
                 });
@@ -122,4 +102,26 @@ describe('Donations', function (){
 				});
 			});
 		});
+		
+		describe('PUT /selling/:_id/selling_amount', () => {
+      it('should return a message and the selling amount increased by 1', function(done) {
+         chai.request(server)
+            .put('/selling/1000001/selling_amount')
+            .end(function(err, res) {
+                expect(res).to.have.status(200);
+                let selling = res.body.data ;
+                expect(selling).to.include( { _id: 1000001, selling_amount: 2  } );
+                done();
+            });
+    });
+	 it('should return a 404 and a message for invalid selling id', function(done) {
+        chai.request(server)
+            .put('/selling/a100001/selling_amount')
+            .end(function(err, res) {
+                expect(res).to.have.status(200);
+                expect(res.body).to.have.property('message','Selling Info NOT Found!' ) ;
+                done();
+            });
+    });
+})
 });

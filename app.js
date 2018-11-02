@@ -35,7 +35,7 @@ app.get('/selling/sort/price', selling.sortAllPrice);
 app.post('/selling',selling.addSelling);
 app.delete('/selling/:_id', selling.deleteSelling);
 app.get('/selling/s_s/show', selling.findSellingSneakerInfoByPrice);
-app.put('/donations/:_id/vote', selling.incrementSellingAmount);
+app.put('/selling/:_id/selling_amount', selling.incrementSellingAmount);
 
 app.get('/account',account.findAllAccount);
 app.post('/account',account.addAccount);

@@ -99,11 +99,11 @@ router.findSellingSneakerInfoByPrice = (req, res) => {
 }
 router.incrementSellingAmount = (req, res) => {
 
-    Selling.findById(req.params.selling_id, function(err,selling) {
+    Selling.findById(req.params._id, function(err,selling) {
         if (err)
             res.json({ message: 'Selling Info NOT Found!', errmsg : err } );
         else {
-            selling.upvotes += 1;
+            selling.selling_amount += 1;
             selling.save(function (err) {
                 if (err)
                     res.json({ message: 'Selling Amounts are NOT Added!', errmsg : err } );
