@@ -1,7 +1,7 @@
 let mongoose = require('mongoose');
 
 let OrderSchema = new mongoose.Schema({
-        order_id: String,
+        _id: String,
 		buyer_account_name: String,
         seller_account_name: String,
         brand: String,
