@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4632d1ee-16e9-4313-a59f-e8f5e19bd71e" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/selling.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/selling.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/routes/selling-test.js" beforeDir="false" afterPath="$PROJECT_DIR$/test/routes/selling-test.js" afterDir="false" />
-    </list>
+    <list default="true" id="4632d1ee-16e9-4313-a59f-e8f5e19bd71e" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -63,7 +59,7 @@
     <session id="-644323143">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="1" />
+          <entry key="project.closed" value="2" />
           <entry key="project.open.time.0" value="1" />
           <entry key="project.open.time.7" value="1" />
           <entry key="project.opened" value="2" />
@@ -152,8 +148,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/routes/selling.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="446">
-              <caret line="146" selection-start-line="146" selection-end-line="146" />
+            <state relative-caret-position="326">
+              <caret line="142" column="12" lean-forward="true" selection-start-line="142" selection-start-column="12" selection-end-line="142" selection-end-column="12" />
             </state>
           </provider>
         </entry>
@@ -236,7 +232,7 @@
       <path value="$PROJECT_DIR$/package.json" />
     </packageJsonPaths>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="1">
     <option name="x" value="64" />
     <option name="y" value="68" />
     <option name="width" value="1044" />
@@ -1648,7 +1644,7 @@
       <workItem from="1540541606997" duration="3341000" />
       <workItem from="1540550198810" duration="9026000" />
       <workItem from="1541185241294" duration="2117000" />
-      <workItem from="1541192563334" duration="1192000" />
+      <workItem from="1541192563334" duration="1387000" />
     </task>
     <task id="LOCAL-00001" summary="sneakers' info">
       <created>1540227340666</created>
@@ -1724,7 +1720,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="220944000" />
+    <option name="totallyTimeSpent" value="221139000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1736,10 +1732,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="64" y="68" width="1044" height="890" extended-state="1" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.10273973" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.19383697" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -1752,7 +1748,7 @@
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32899022" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" show_stripe_button="false" />
-      <window_info active="true" anchor="bottom" id="REST Client" order="9" sideWeight="0.49947312" visible="true" weight="0.33116177" />
+      <window_info active="true" anchor="bottom" id="REST Client" order="9" sideWeight="0.49947312" visible="true" weight="0.40397352" />
       <window_info anchor="bottom" id="Terminal" order="10" weight="0.25515744" />
       <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.50052685" side_tool="true" weight="0.37744033" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -1880,8 +1876,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/routes/selling.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="446">
-          <caret line="146" selection-start-line="146" selection-end-line="146" />
+        <state relative-caret-position="326">
+          <caret line="142" column="12" lean-forward="true" selection-start-line="142" selection-start-column="12" selection-end-line="142" selection-end-column="12" />
         </state>
       </provider>
     </entry>

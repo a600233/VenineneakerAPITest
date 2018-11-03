@@ -124,4 +124,23 @@ describe('Donations', function (){
             });
     });
 })
+
+	describe('GET /selling/:_id',  () => {
+        it('should return one the selling info in an array', function(done) {
+            chai.request(server)
+              .get('/selling/1000001')
+             .end(function(err, res) {
+		expect(res).to.have.status(200);
+		expect(res.body).to.be.a('array');
+		expect(res.body.length).to.equal(1);
+		let result = _.map(res.body, (selling) => {
+			return { size: selling.size,
+				selling_price: selling.selling_price } 
+        });
+		expect(res.body.length).to.equal(1);
+		expect(result).to.include( { size: 42, selling_price: 395 } );
+		done();
+});
+        });
+    });
 });
