@@ -92,7 +92,7 @@ router.addOrder = (req, res) => {
     res.setHeader('Content-Type', 'application/json');
 
     var order = new Order();
-
+	order._id = req.body._id;
     order.buyer_account_name = req.body.buyer_account_name;
     order.seller_account_name = req.body.seller_account_name;
     order.brand = req.body.brand;
