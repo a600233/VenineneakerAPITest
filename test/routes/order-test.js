@@ -146,4 +146,23 @@ describe('DELETE /order/:_id',  function() {
 });
         });
     });
+	
+		describe('GET /order/b_n/:buyer_account_name',  () => {
+        it('should return one specific order info by buyer name in an array', function(done) {
+            chai.request(server)
+              .get('/order/b_n/Ya')
+             .end(function(err, res) {
+		expect(res).to.have.status(200);
+		expect(res.body).to.be.a('array');
+		let result = _.map(res.body, (order) => {
+			return { buyer_account_name: order.buyer_account_name,
+                            seller_account_name: order.seller_account_name } 
+        });
+		expect(res.body.length).to.equal(1);
+		expect(result).to.include( {buyer_account_name: 'Yan.Liu', seller_account_name: 'JIE_Bao' } );
+		done();
+});
+        });
+    });	
+	
 });

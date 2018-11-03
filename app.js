@@ -49,8 +49,9 @@ app.get('/order',order.findAllOrder);
 app.post('/order',order.addOrder);
 app.delete('/order/:_id', order.deleteOrder);
 app.get('/order/:_id',order.findOrderById);
-app.get('/order/b_n/:account_name',order.findOrderByBuyerName);
+app.get('/order/b_n/:buyer_account_name',order.findOrderByBuyerName);
 app.put('/order/:_id/amount',order.incrementAmounts);
+app.get('/order/s_o/info',order.findSpecificOrderInfo);
 
 app.get('/sneaker',sneaker.findAllSneaker);
 app.post('/sneaker',sneaker.addSneaker);
