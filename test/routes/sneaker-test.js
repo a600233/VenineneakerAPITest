@@ -64,4 +64,29 @@ describe('Sneaker', function (){
                 });
         });
     });
+	
+	describe('DELETE /sneaker/:_id',  function() {
+        it('should return confirmation message of deleting and update ', function(done) {
+            chai.request(server)
+                .delete('/sneaker/60000008')
+                .end(function(err, res) {
+                    expect(res).to.have.status(200);
+                    expect(res.body).to.have.property('message').equal('Sneaker Info Successfully Deleted!' );
+                    done();
+                });
+        });
+        after(function  (done) {
+            chai.request(server)
+                .get('/sneaker')
+                .end(function(err, res) {
+                    let result = _.map(res.body, (sneaker) => {
+                        return {brand: sneaker.brand,
+							article_number: sneaker.article_number   };
+                    }  );
+						expect(res.body.length).to.equal(7);
+						expect(result).to.include( { brand: 'New Balance', article_number: 'M990GL4' } );
+                    done();
+                });
+        });
+		 });
 });
