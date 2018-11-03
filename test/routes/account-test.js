@@ -29,5 +29,38 @@ describe('Account', function (){
         });
     });
 	
-	
+	describe('POST /account', function () {
+        it('should return confirmation message and update db', function(done) {
+            let account = {            
+	 account_name: "Eminem",
+    account_id: 2000004,
+    gender: "Male",
+    selling: [],
+    buying: [],
+    following_sneakers: [943807-012],
+    registration_date:"2017-10-17",
+            };
+            chai.request(server)
+                .post('/account')
+                .send(account)
+                .end(function(err, res) {
+                    expect(res).to.have.status(200);
+                    expect(res.body).to.have.property('message').equal('Account Info Successfully Added!' );
+                    done();
+                });
+        });
+        after(function  (done) {
+            chai.request(server)
+                .get('/account')
+                .end(function(err, res) {
+                    let result = _.map(res.body, (account) => {
+                        return { account_name: account.account_name,
+                            account_id: account.account_id };
+                    }  );
+					 expect(res.body.length).to.equal(4);
+                    expect(result).to.include( { account_name: 'Eminem', account_id: 2000004 } );
+                    done();
+                });
+        });
+    });
 });
