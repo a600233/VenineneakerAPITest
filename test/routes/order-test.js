@@ -89,4 +89,61 @@ describe('Order', function (){
             });
     });
 })
+
+describe('DELETE /order/:_id',  function() {
+        it('should return confirmation message of deleting and update ', function(done) {
+            chai.request(server)
+                .delete('/order/3000003')
+                .end(function(err, res) {
+                    expect(res).to.have.status(200);
+                    expect(res.body).to.have.property('message').equal('Order Info Successfully Deleted!' );
+                    done();
+                });
+        });
+        after(function  (done) {
+            chai.request(server)
+                .get('/order')
+                .end(function(err, res) {
+                    let result = _.map(res.body, (order) => {
+                        return { buyer_account_name: order.buyer_account_name,
+                            seller_account_name: order.seller_account_name };
+                    }  );
+						expect(res.body.length).to.equal(2);
+						expect(result).to.include( { buyer_account_name: 'ZiTing-Wang', seller_account_name: 'JIE_Bao'} );
+                    done();
+                });
+        });
+		 });
+		 
+		 
+		 describe('DELETE /order/:_id',  function() {
+	  it('should return fault and a message for invalid order id',function(done){
+				chai.request(server)
+				.delete('/order/c000004')
+				.end(function(err, res){
+					expect(res).to.have.status(200);
+					expect(res.body).to.have.property('message').equal('Order Info NOT DELETED!');
+					done();
+				});
+			});
+		});
+		
+		describe('GET /order/:_id',  () => {
+        it('should return one the order info in an array', function(done) {
+            chai.request(server)
+              .get('/order/3000001')
+             .end(function(err, res) {
+		expect(res).to.have.status(200);
+		expect(res.body).to.be.a('array');
+		expect(res.body.length).to.equal(1);
+		let result = _.map(res.body, (order) => {
+			return { buyer_account_name: order.buyer_account_name,
+                            seller_account_name: order.seller_account_name} 
+        });
+		expect(res.body.length).to.equal(1);
+		expect(result).to.include( {buyer_account_name: 'ZiTing-Wang', seller_account_name: 'JIE_Bao'} );
+		done();
+});
+        });
+    });
 });
