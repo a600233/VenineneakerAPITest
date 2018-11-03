@@ -138,7 +138,7 @@ router.addAccount = (req, res) => {
 }
 router.deleteAccount = (req, res) => {
 
-    Account.findByIdAndRemove(req.params._id, function(err) {
+    Account.findByIdAndRemove(req.params.account_id, function(err) {
         if (err)
             res.json({ message: 'Account Info NOT DELETED!', errmsg : err } );
         else
