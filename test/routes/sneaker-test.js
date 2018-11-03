@@ -89,4 +89,16 @@ describe('Sneaker', function (){
                 });
         });
 		 });
+		 
+		 describe('DELETE /sneaker/:_id',  function() {
+	  it('should return fault and a message for invalid sneaker id',function(done){
+				chai.request(server)
+				.delete('/sneaker/e0000002')
+				.end(function(err, res){
+					expect(res).to.have.status(200);
+					expect(res.body).to.have.property('message').equal('Sneaker Info NOT DELETED!');
+					done();
+				});
+			});
+		}); 
 });
