@@ -80,7 +80,7 @@ router.addSneaker = (req, res) => {
     res.setHeader('Content-Type', 'application/json');
 
     var sneaker = new Sneaker();
-
+	sneaker._id = req.body._id;
     sneaker.brand = req.body.brand;
     sneaker.series = req.body.series;
     sneaker.name = req.body.name;

@@ -1,7 +1,8 @@
 let mongoose = require('mongoose');
 
 let SneakerSchema = new mongoose.Schema({
-        brand: String,
+        _id: Number,
+		brand: String,
         series: String,
         name: String,
         color: String,
