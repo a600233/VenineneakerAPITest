@@ -29,14 +29,14 @@ router.findAllSneaker = (req, res) => {
 router.findSpecificSneakerInfo = (req, res) => {
 
     res.setHeader('Content-Type', 'application/json');
-    var keywrod = req.params.keywrod;
+    var keyword = req.params.keyword;
     var _filter1 = {
         $or:[
-            {brand:{$regex:keywrod,$options:'$i'}},
-            {series:{$regex:keywrod,$options:'$i'}},
-            {name:{$regex:keywrod,$options:'$i'}},
-            {color:{$regex:keywrod,$options:'$i'}},
-            {article_number:{$regex:keywrod,$options:'$i'}},
+            {brand:{$regex:keyword,$options:'$i'}},
+            {series:{$regex:keyword,$options:'$i'}},
+            {name:{$regex:keyword,$options:'$i'}},
+            {color:{$regex:keyword,$options:'$i'}},
+            {article_number:{$regex:keyword,$options:'$i'}},
         ]
     }
     Sneaker.find(_filter1).limit(5).exec(function (err,sneaker) {

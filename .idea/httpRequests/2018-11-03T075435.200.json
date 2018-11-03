@@ -1,0 +1,18 @@
+{
+  "message": "Sneaker Info NOT Found!",
+  "errmsg": {
+    "ok": 0,
+    "errmsg": "$regex has to be a string",
+    "code": 2,
+    "codeName": "BadValue",
+    "operationTime": "6619725177976520705",
+    "$clusterTime": {
+      "clusterTime": "6619725177976520705",
+      "signature": {
+        "hash": "VHSCUe87sn867tprP26fhfW0qF8=",
+        "keyId": "6609986919453425665"
+      }
+    },
+    "name": "MongoError"
+  }
+}

@@ -90,6 +90,7 @@ describe('Sneaker', function (){
         });
 		 });
 		 
+
 		 describe('DELETE /sneaker/:_id',  function() {
 	  it('should return fault and a message for invalid sneaker id',function(done){
 				chai.request(server)
@@ -101,4 +102,22 @@ describe('Sneaker', function (){
 				});
 			});
 		}); 
+
+		describe('GET /sneaker/find/:keyword',  () => {
+        it('should return one specific sneaker info by name in an array', function(done) {
+            chai.request(server)
+              .get('/sneaker/find/one star')
+             .end(function(err, res) {
+		expect(res).to.have.status(200);
+		expect(res.body).to.be.a('array');
+		let result = _.map(res.body, (sneaker) => {
+			return { brand: sneaker.brand,
+            article_number: sneaker.article_number } 
+        });
+		expect(res.body.length).to.equal(1);
+		expect(result).to.include( { brand: 'Converse', article_number: '162131C' } );
+		done();
+});
+        });
+    });
 });
