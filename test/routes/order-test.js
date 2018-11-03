@@ -40,6 +40,7 @@ describe('Order', function (){
     name: "Eminem Carhartt",
     size: 43,
     selling_price: 11240,
+	amount: 1,
     shipping_address: "USA, Michigan, Detroit, 8 Mile Street, Trailer Rabbit",
     order_time:'2018-10-17',
             };
@@ -66,4 +67,26 @@ describe('Order', function (){
                 });
         });
     });
+	
+	describe('PUT /order/:_id/amount', () => {
+      it('should return a message and the order amount increased by 1', function(done) {
+         chai.request(server)
+            .put('/order/3000003/amount')
+            .end(function(err, res) {
+                expect(res).to.have.status(200);
+                let order = res.body.data ;
+                expect(order).to.include( { _id: 3000003, amount: 2  } );
+                done();
+            });
+    });
+	 it('should return a 404 and a message for invalid order id', function(done) {
+        chai.request(server)
+            .put('/order/c000004/amount')
+            .end(function(err, res) {
+                expect(res).to.have.status(200);
+                expect(res.body).to.have.property('message','Order NOT Found!' ) ;
+                done();
+            });
+    });
+})
 });
