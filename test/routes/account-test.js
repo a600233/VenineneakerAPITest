@@ -99,4 +99,23 @@ describe('Account', function (){
 				});
 			});
 		});
+		
+		describe('GET /account/:_id',  () => {
+        it('should return one the selling info in an array', function(done) {
+            chai.request(server)
+              .get('/account/2000003')
+             .end(function(err, res) {
+		expect(res).to.have.status(200);
+		expect(res.body).to.be.a('array');
+		expect(res.body.length).to.equal(1);
+		let result = _.map(res.body, (selling) => {
+			return { account_name: selling.account_name,
+				gender: selling.gender } 
+        });
+		expect(res.body.length).to.equal(1);
+		expect(result).to.include( { account_name: 'ZiTing-Wang', gender: 'Male' } );
+		done();
+});
+        });
+    });
 });
