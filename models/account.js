@@ -1,8 +1,8 @@
 let mongoose = require('mongoose');
 
 let AccountSchema = new mongoose.Schema({
-        account_name: String,
-        account_id: Number,
+        _id: Number,
+		account_name: String,
         gender: String,
         selling: Array,
         buying: Array,

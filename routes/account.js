@@ -29,7 +29,7 @@ router.findOneByAccountId = (req, res) => {
 
     res.setHeader('Content-Type', 'application/json');
 
-    Account.find({ "account_id" : req.params.account_id },function(err, account) {
+    Account.find({ "_id" : req.params._id },function(err, account) {
         if (err)
             res.json({ message: 'Selling Info NOT Found!', errmsg : err } );
         else
@@ -71,7 +71,7 @@ router.findSellingInfoByAccount = (req, res) => {
             }
         },{
             $project:{
-                "account_id":0,
+                "_id":0,
                 "selling":0,
                 "buying":0,
                 "following_sneakers":0,
@@ -99,7 +99,7 @@ router.findBuyingInfoByAccount = (req, res) => {
             },
         },{
             $project:{
-                "account_id":0,
+                "_id":0,
                 "selling":0,
                 "buying":0,
                 "following_sneakers":0,
@@ -121,7 +121,7 @@ router.addAccount = (req, res) => {
     var account = new Account();
 
     account.account_name = req.body.account_name;
-    account.account_id = req.body.account_id;
+    account._id = req.body._id;
     account.gender = req.body.gender;
     account.color = req.body.color;
     account.selling = req.body.selling;
@@ -138,7 +138,7 @@ router.addAccount = (req, res) => {
 }
 router.deleteAccount = (req, res) => {
 
-    Account.findByIdAndRemove(req.params.account_id, function(err) {
+    Account.findByIdAndRemove(req.params._id, function(err) {
         if (err)
             res.json({ message: 'Account Info NOT DELETED!', errmsg : err } );
         else

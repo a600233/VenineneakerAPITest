@@ -39,8 +39,8 @@ app.put('/selling/:_id/selling_amount', selling.incrementSellingAmount);
 
 app.get('/account',account.findAllAccount);
 app.post('/account',account.addAccount);
-app.delete('/account/:account_id', account.deleteAccount);
-app.get('/account/:account_id',account.findOneByAccountId);
+app.delete('/account/:_id', account.deleteAccount);
+app.get('/account/:_id',account.findOneByAccountId);
 app.get('/account/an/:account_name',account.findAccountByAccountName);
 app.get('/account/s_a/show',account.findSellingInfoByAccount);
 app.get('/account/b_a/show',account.findBuyingInfoByAccount);
