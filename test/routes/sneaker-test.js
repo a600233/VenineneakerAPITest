@@ -120,4 +120,54 @@ describe('Sneaker', function (){
 });
         });
     });
+
+		
+	describe('GET /sneaker/s_t/:keyword1/:keyword2',  () => {
+        it('should return sneakers info during in specific TIME in an array', function(done) {
+            chai.request(server)
+              .get('/sneaker/s_t/2018-06-30/2018-01-01')
+             .end(function(err, res) {
+		expect(res).to.have.status(200);
+		expect(res.body).to.be.a('array');
+		let result = _.map(res.body, (sneaker) => {
+			return { brand: sneaker.brand,
+            article_number: sneaker.article_number } 
+        });
+		expect(res.body.length).to.equal(2);
+		expect(result).to.include( { brand: 'Converse', article_number: '162131C' } );
+		expect(result).to.include( { brand: 'Nike', article_number: '555088-403' } );
+		done();
+});
+        });
+    });
+	
+	describe('GET /sneaker/s_t/:keyword1/:keyword2',  () => {
+        it('should return sneakers info just on the boundary test of TIME in an array', function(done) {
+            chai.request(server)
+              .get('/sneaker/s_t/2018-04-26/2018-03-24')
+             .end(function(err, res) {
+		expect(res).to.have.status(200);
+		expect(res.body).to.be.a('array');
+		let result = _.map(res.body, (sneaker) => {
+			return { brand: sneaker.brand,
+            article_number: sneaker.article_number } 
+        });
+		expect(res.body.length).to.equal(2);
+		expect(result).to.include( { brand: 'Converse', article_number: '162131C' } );
+		expect(result).to.include( { brand: 'Nike', article_number: '555088-403' } );
+		done();
+});
+        });
+    });
+	
+	describe('GET /sneaker/s_t/:keyword1/:keyword2',  () => {
+        it('should return sneakers info out of the boundary of TIME in an array', function(done) {
+            chai.request(server)
+              .get('/sneaker/s_t/2018-03-31/2018-03-25')
+             .end(function(err, res) {
+		expect(res.body.length).to.equal(0);
+		done();
+});
+        });
+    });
 });

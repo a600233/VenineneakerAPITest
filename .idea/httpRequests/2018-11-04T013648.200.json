@@ -1,6 +1,6 @@
 [
   {
-    "_id": "5bcda0ca43483f3574e6ddb0",
+    "_id": 60000001,
     "brand": "Nike",
     "series": "Air Jordan 1 Retro High",
     "name": "Game Royal",
@@ -11,18 +11,7 @@
     "__v": 0
   },
   {
-    "_id": "5bce006ae290e408b02d1245",
-    "brand": "New Balance",
-    "series": "990v4",
-    "name": "Kith Grey",
-    "color": "Grey/White",
-    "original_price": 175,
-    "article_number": "M990GL4",
-    "release_date": "2018-08-21T00:00:00.000Z",
-    "__v": 0
-  },
-  {
-    "_id": "5bce00c0e290e408b02d1246",
+    "_id": 60000006,
     "brand": "Converse",
     "series": "One Star Ox",
     "name": "Tyler the Creator Gold Le Fleur Mono (Blue)",
