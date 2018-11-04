@@ -163,4 +163,21 @@ describe('Selling', function (){
 });
         });
     });
+	describe('GET /selling/info/:keyword',  () => {
+        it('should return one specific selling info by name in an array', function(done) {
+            chai.request(server)
+              .get('/selling/info/undercov')
+             .end(function(err, res) {
+		expect(res).to.have.status(200);
+		expect(res.body).to.be.a('array');
+		let result = _.map(res.body, (selling) => {
+			return { brand: selling.brand,
+            article_number: selling.article_number } 
+        });
+		expect(res.body.length).to.equal(1);
+		expect(result).to.include( { brand: 'Nike', article_number: 'BQ2718-200' } );
+		done();
+});
+        });
+    });
 });
