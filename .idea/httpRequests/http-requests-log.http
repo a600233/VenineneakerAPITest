@@ -1,3 +1,23 @@
+GET http://localhost:3000/order/s_o/info
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{   "brand": "Adidas",   "series": "Yeezy 700",   "name": "Mauve",   "color": "Mauve",   "original_price": 300,   "article_number": "EE9614",   "release_date":"2018-10-27"}
+
+<> 2018-11-04T045950.200.json
+
+###
+
+GET http://localhost:3000/order/s_o/info
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{   "brand": "Adidas",   "series": "Yeezy 700",   "name": "Mauve",   "color": "Mauve",   "original_price": 300,   "article_number": "EE9614",   "release_date":"2018-10-27"}
+
+###
+
 GET http://localhost:3000/sneaker/s_t/2018-04-01/2018-03-27
 Accept: */*
 Cache-Control: no-cache
@@ -519,26 +539,6 @@ Content-Type: application/json
 {   "brand": "Adidas",   "series": "Yeezy 700",   "name": "Mauve",   "color": "Mauve",   "original_price": 300,   "article_number": "EE9614",   "release_date":"2018-10-27"}
 
 <> 2018-11-02T072118.200.json
-
-###
-
-DELETE http://localhost:3000/selling/1000002
-Accept: */*
-Cache-Control: no-cache
-Content-Type: application/json
-
-{   "brand": "Adidas",   "series": "Yeezy 700",   "name": "Mauve",   "color": "Mauve",   "original_price": 300,   "article_number": "EE9614",   "release_date":"2018-10-27"}
-
-###
-
-GET http://localhost:3000/selling
-Accept: */*
-Cache-Control: no-cache
-Content-Type: application/json
-
-{   "brand": "Adidas",   "series": "Yeezy 700",   "name": "Mauve",   "color": "Mauve",   "original_price": 300,   "article_number": "EE9614",   "release_date":"2018-10-27"}
-
-<> 2018-11-02T072009.200.json
 
 ###
 

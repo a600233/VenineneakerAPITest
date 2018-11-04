@@ -182,7 +182,7 @@ describe('Selling', function (){
     });
 	
 	describe('GET /selling/s_s/show',  () => {
-        it('should return one specific selling info by name in an array', function(done) {
+        it('should return TWO aggregated collections with selling info in an array', function(done) {
             chai.request(server)
               .get('/selling/s_s/show')
              .end(function(err, res) {

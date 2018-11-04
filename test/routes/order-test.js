@@ -165,5 +165,21 @@ describe('DELETE /order/:_id',  function() {
         });
     });	
 	
-		
+		describe('GET /order/s_o/info',  () => {
+        it('should return one specific order info by name in an array', function(done) {
+            chai.request(server)
+              .get('/order/s_o/info')
+             .end(function(err, res) {
+		expect(res).to.have.status(200);
+		expect(res.body).to.be.a('array');
+		let result = _.map(res.body, (order) => {
+			return { buyer_account_name: order.buyer_account_name,
+            seller_account_name: order.seller_account_name } 
+        });
+		expect(res.body.length).to.equal(2);
+		expect(result).to.include( { buyer_account_name: 'ZiTing-Wang', seller_account_name: 'JIE_Bao' } );
+		done();
+});
+        });
+    });
 });
