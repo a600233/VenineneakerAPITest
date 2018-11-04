@@ -65,6 +65,28 @@ describe('Selling', function (){
         });
     });
 	
+	describe('PUT /selling/:_id/selling_amount', () => {
+      it('should return a message and the selling amount increased by 1', function(done) {
+         chai.request(server)
+            .put('/selling/1000002/selling_amount')
+            .end(function(err, res) {
+                expect(res).to.have.status(200);
+                let selling = res.body.data ;
+                expect(selling).to.include( { _id: 1000002, selling_amount: 2  } );
+                done();
+            });
+    });
+	 it('should return a 404 and a message for invalid selling id', function(done) {
+        chai.request(server)
+            .put('/selling/a100001/selling_amount')
+            .end(function(err, res) {
+                expect(res).to.have.status(200);
+                expect(res.body).to.have.property('message','Selling Info NOT Found!' ) ;
+                done();
+            });
+    });
+})
+
 	describe('DELETE /selling/:_id',  function() {
         it('should return confirmation message of deleting and update ', function(done) {
             chai.request(server)
@@ -102,28 +124,6 @@ describe('Selling', function (){
 				});
 			});
 		});
-		
-		describe('PUT /selling/:_id/selling_amount', () => {
-      it('should return a message and the selling amount increased by 1', function(done) {
-         chai.request(server)
-            .put('/selling/1000001/selling_amount')
-            .end(function(err, res) {
-                expect(res).to.have.status(200);
-                let selling = res.body.data ;
-                expect(selling).to.include( { _id: 1000001, selling_amount: 2  } );
-                done();
-            });
-    });
-	 it('should return a 404 and a message for invalid selling id', function(done) {
-        chai.request(server)
-            .put('/selling/a100001/selling_amount')
-            .end(function(err, res) {
-                expect(res).to.have.status(200);
-                expect(res.body).to.have.property('message','Selling Info NOT Found!' ) ;
-                done();
-            });
-    });
-})
 
 	describe('GET /selling/:_id',  () => {
         it('should return one the selling info in an array', function(done) {
@@ -138,26 +138,27 @@ describe('Selling', function (){
 				selling_price: selling.selling_price } 
         });
 		expect(res.body.length).to.equal(1);
-		expect(result).to.include( { size: 42, selling_price: 395 } );
+		expect(result).to.include( { size: 44, selling_price: 389 } );
 		done();
 });
         });
     });
 	
 	describe('GET /selling/sort/price',  () => {
-        it('should return one the selling info in an array', function(done) {
+        it('should return all selling info sorted by positive sequence in an array', function(done) {
             chai.request(server)
               .get('/selling/sort/price')
              .end(function(err, res) {
 		expect(res).to.have.status(200);
-		expect(res.body).to.be.a('array');
-		expect(res.body.length).to.equal(3);
+		expect(res.body).to.be.a('array');		
 		let result = _.map(res.body, (selling) => {
 			return { size: selling.size,
 				selling_price: selling.selling_price } 
         });
-		expect(res.body.length).to.equal(1);
-		expect(result).to.include( { size: 42, selling_price: 395 } );
+		expect(res.body.length).to.equal(3);
+		expect(result[0]).to.include( { size: 41, selling_price: 280 } );		
+		expect(result[1]).to.include( { size: 44, selling_price: 389 } );
+		expect(result[2]).to.include( { size: 42, selling_price: 395 } );
 		done();
 });
         });
