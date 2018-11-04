@@ -137,4 +137,39 @@ describe('Account', function (){
         });
     });	
 	
+	describe('GET /account/s_a/show',  () => {
+        it('should return THREE aggregated collections with account info in an array', function(done) {
+            chai.request(server)
+              .get('/account/s_a/show')
+             .end(function(err, res) {
+		expect(res).to.have.status(200);
+		expect(res.body).to.be.a('array');
+		let result = _.map(res.body, (account) => {
+			return { account_name: account.account_name,
+            account_id: account.account_id } 
+        });
+		expect(res.body.length).to.equal(3);
+		expect(result).to.include( { account_name: 'JIE_Bao', account_id: 2000001  } );
+		done();
+});
+        });
+    });
+	
+	describe('GET /account/b_a/show',  () => {
+        it('should return Two aggregated collections with account info in an array', function(done) {
+            chai.request(server)
+              .get('/account/b_a/show')
+             .end(function(err, res) {
+		expect(res).to.have.status(200);
+		expect(res.body).to.be.a('array');
+		let result = _.map(res.body, (account) => {
+			return { account_name: account.account_name,
+            gender: account.gender } 
+        });
+		expect(res.body.length).to.equal(3);
+		expect(result).to.include( { account_name: 'JIE_Bao', gender: 'Male'  } );
+		done();
+});
+        });
+    });
 });
