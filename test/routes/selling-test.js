@@ -180,4 +180,22 @@ describe('Selling', function (){
 });
         });
     });
+	
+	describe('GET /selling/s_s/show',  () => {
+        it('should return one specific selling info by name in an array', function(done) {
+            chai.request(server)
+              .get('/selling/s_s/show')
+             .end(function(err, res) {
+		expect(res).to.have.status(200);
+		expect(res.body).to.be.a('array');
+		let result = _.map(res.body, (selling) => {
+			return { size: selling.size,
+            account_name: selling.account_name } 
+        });
+		expect(res.body.length).to.equal(3);
+		expect(result).to.include( { size: 41, account_name: 'JIE_Bao' } );
+		done();
+});
+        });
+    });
 });
