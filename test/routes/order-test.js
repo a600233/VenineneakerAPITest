@@ -11,7 +11,7 @@ let _ = require('lodash' );
 describe('Order', function (){
   
     describe('GET /order',  () => {
-        it('should return all the order in an array', function(done) {
+        it('should return all the orders in an array', function(done) {
             chai.request(server)
               .get('/order')
              .end(function(err, res) {
@@ -148,7 +148,7 @@ describe('DELETE /order/:_id',  function() {
     });
 	
 		describe('GET /order/b_n/:buyer_account_name',  () => {
-        it('should return one specific order info by buyer name in an array', function(done) {
+        it('should return one specific order info by searching buyer name in an array', function(done) {
             chai.request(server)
               .get('/order/b_n/Ya')
              .end(function(err, res) {
@@ -166,7 +166,7 @@ describe('DELETE /order/:_id',  function() {
     });	
 	
 		describe('GET /order/s_o/info',  () => {
-        it('should return one specific order info by name in an array', function(done) {
+        it('should return all orders info with account info in an array', function(done) {
             chai.request(server)
               .get('/order/s_o/info')
              .end(function(err, res) {

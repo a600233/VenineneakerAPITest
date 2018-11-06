@@ -164,7 +164,7 @@ describe('Selling', function (){
         });
     });
 	describe('GET /selling/info/:keyword',  () => {
-        it('should return one specific selling info by name in an array', function(done) {
+        it('should return one specific selling info by fuzzy search in an array', function(done) {
             chai.request(server)
               .get('/selling/info/undercov')
              .end(function(err, res) {

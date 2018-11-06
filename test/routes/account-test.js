@@ -11,7 +11,7 @@ let _ = require('lodash' );
 describe('Account', function (){
   
     describe('GET /account',  () => {
-        it('should return all the account in an array', function(done) {
+        it('should return all the accounts in an array', function(done) {
             chai.request(server)
               .get('/account')
              .end(function(err, res) {
@@ -101,7 +101,7 @@ describe('Account', function (){
 		});
 		
 		describe('GET /account/:_id',  () => {
-        it('should return one the selling info in an array', function(done) {
+        it('should return one account info by account id in an array', function(done) {
             chai.request(server)
               .get('/account/2000003')
              .end(function(err, res) {
@@ -120,7 +120,7 @@ describe('Account', function (){
     });
 	
 	describe('GET /account/an/:account_name',  () => {
-        it('should return one specific selling info by name in an array', function(done) {
+        it('should return one specific selling info by fuzzy searching name in an array', function(done) {
             chai.request(server)
               .get('/account/an/zitin')
              .end(function(err, res) {

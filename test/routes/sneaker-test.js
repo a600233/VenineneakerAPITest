@@ -11,7 +11,7 @@ let _ = require('lodash' );
 describe('Sneaker', function (){
   
     describe('GET /sneaker',  () => {
-        it('should return all the sneaker in an array', function(done) {
+        it('should return all the sneakers in an array', function(done) {
             chai.request(server)
               .get('/sneaker')
              .end(function(err, res) {
@@ -104,7 +104,7 @@ describe('Sneaker', function (){
 		}); 
 
 		describe('GET /sneaker/find/:keyword',  () => {
-        it('should return one specific sneaker info by name in an array', function(done) {
+        it('should return one specific sneaker info by fuzzy searching in an array', function(done) {
             chai.request(server)
               .get('/sneaker/find/one star')
              .end(function(err, res) {
