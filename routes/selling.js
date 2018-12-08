@@ -144,5 +144,26 @@ router.deleteSelling = (req, res) => {
             res.json({ message: 'Selling Info Successfully Deleted!'});
     });
 }
-
+router.editSelling = (req,res)=>{
+    Selling.findById(req.params._id, function(err,selling) {
+        if (err)
+            res.json({ message: "Selling Info NOT Found!", errmsg : err } );
+        else {
+            selling.brand = req.body.brand;
+            selling.series = req.body.series;
+            selling.name = req.body.name;
+            selling.size = req.body.size;
+            selling.article_number = req.body.article_number;
+            selling.selling_price = req.body.selling_price;
+            selling.account_name = req.body.account_name;
+            selling.selling_amount = req.body.selling_amount;
+            selling.save(function (err) {
+                if (err)
+                    res.json({ message: "Selling Info Location NOT Change!", errmsg : err } );
+                else
+                    res.json({ message: "Selling Info Location Successfully Change!", data: selling });
+            });
+        }
+    });
+}
 module.exports = router;

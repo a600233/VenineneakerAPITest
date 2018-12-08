@@ -6,6 +6,7 @@ var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+//var cors = require('cors');
 
 const selling = require("./routes/selling");
 const account = require("./routes/account");
@@ -25,6 +26,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+//app.use(cors());
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
@@ -36,6 +38,7 @@ app.post('/selling',selling.addSelling);
 app.delete('/selling/:_id', selling.deleteSelling);
 app.get('/selling/s_s/show', selling.findSellingSneakerInfoByPrice);
 app.put('/selling/:_id/selling_amount', selling.incrementSellingAmount);
+app.put('/selling/:_id',selling.editSelling)
 
 app.get('/account',account.findAllAccount);
 app.post('/account',account.addAccount);

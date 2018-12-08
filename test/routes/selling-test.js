@@ -86,7 +86,28 @@ describe('Selling', function (){
             });
     });
 })
-
+describe('PUT /selling/:_id/', () => {
+    it('should return a message ', function(done) {
+        let selling = {            
+            _id:1000002,
+            brand: "Under Armour",
+            series: "CURRY 4",
+            name: "White Black",
+            size: 39,
+            article_number: "1298306-102",
+            selling_price: 140,
+            account_name: "Yan.Liu",
+            selling_amount: 2,
+        };
+        chai.request(server)
+          .put('/selling/1000002')
+          .end(function(err, res) {
+              expect(res).to.have.status(200);
+              expect(res.body).to.have.property('message').equal('Selling Info Location Successfully Change!' );
+              done();
+          });
+  });
+})
 	describe('DELETE /selling/:_id',  function() {
         it('should return confirmation message of deleting and update ', function(done) {
             chai.request(server)

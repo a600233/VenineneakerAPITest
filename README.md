@@ -251,4 +251,4 @@ $ npm test //Start up all tests.
 ```
 <br>
 
-- [My Github Link to repository](https://github.com/a600233/Sneakertest)
+- [My Github Link to repository](https://github.com/a600233/SneakerAPItest)
