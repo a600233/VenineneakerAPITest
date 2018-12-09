@@ -3,12 +3,12 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
+    "coverage": "cross-env NODE_ENV=test PORT=4000 nyc mocha test/routes/*.js",
     "test": "cross-env NODE_ENV=test mocha --compilers js:babel-core/register test/routes/*.js",
     "publish-coverage": "nyc report --reporter=text-lcov | coveralls",
     "postbuild": "npm run server",
     "prebuild": "npm-run-all test clean",
     "build": "babel ./ --out-dir lib/ --ignore ./node_modules,./.babelrc,./package.json,./package-lock.json,./test --copy-files",
-    "coverage": "cross-env NODE_ENV=test PORT=4000 nyc mocha test/routes/*.js",
     "server": "cross-env NODE_ENV=dev PORT=3001 node lib/bin/www",
     "server:watch": "cross-env NODE_ENV=dev nodemon --exec babel-node bin/www",
     "start": "npm-run-all test build server",
