@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "test": "cross-env NODE_ENV=test mocha --compilers js:babel-core/register test/routes/*.js",
+    "publish-coverage": "nyc report --reporter=text-lcov | coveralls",
     "postbuild": "npm run server",
     "prebuild": "npm-run-all test clean",
     "build": "babel ./ --out-dir lib/ --ignore ./node_modules,./.babelrc,./package.json,./package-lock.json,./test --copy-files",
@@ -32,6 +33,7 @@
     "chai": "^3.5.0",
     "chai-http": "^4.2.0",
     "chai-things": "^0.2.0",
+    "coveralls": "^2.13.1",
     "cross-env": "^5.2.0",
     "eslint-watch": "^4.0.2",
     "istanbul": "^0.4.5",
