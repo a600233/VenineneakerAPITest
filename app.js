@@ -1,3 +1,4 @@
+/ eslint no-unused-vars：“off” /
 var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
@@ -7,6 +8,7 @@ var logger = require('morgan');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 //var cors = require('cors');
+
 
 const selling = require("./routes/selling");
 const account = require("./routes/account");
