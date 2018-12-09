@@ -1,5 +1,5 @@
-let Selling = require('../models/selling');
-let express = require('express');
+import Selling from '../models/selling';
+import express from 'express';
 let router = express.Router();
 let mongoose = require('mongoose');
 //mongoose.connect('mongodb://localhost:27017/sellingdb');
@@ -24,18 +24,18 @@ router.findAll = (req, res) => {
 
         res.send(JSON.stringify(selling,null,5));
     });
-}
+};
 router.findOneById = (req, res) => {
 
     res.setHeader('Content-Type', 'application/json');
 
-    Selling.find({ "_id" : req.params._id },function(err, selling) {
+    Selling.find({ '_id' : req.params._id },function(err, selling) {
         if (err)
             res.json({ message: 'Selling Info NOT Found!', errmsg : err } );
         else
             res.send(JSON.stringify(selling,null,5));
     });
-}
+};
 router.findSellingInfo = (req, res) => {
 
     res.setHeader('Content-Type', 'application/json');
@@ -47,14 +47,14 @@ router.findSellingInfo = (req, res) => {
             {name:{$regex:keywrod,$options:'$i'}},
             {article_number:{$regex:keywrod,$options:'$i'}},
         ]
-    }
+    };
     Selling.find(_filter1).limit(5).sort({'selling_price':1}).exec(function (err,selling) {
         if(err)
             res.json({message: 'Sneakers Selling Info NOT Found!',errmsg: err});
         else
             res.send(JSON.stringify(selling,null,5));
-    })
-}
+    });
+};
 
 router.sortAllPrice = (req, res) => {
 
@@ -64,26 +64,26 @@ router.sortAllPrice = (req, res) => {
             res.json({errmsg: err});
         else
             res.send(JSON.stringify(selling,null,5));
-    })
-}
+    });
+};
 router.findSellingSneakerInfoByPrice = (req, res) => {
 
     res.setHeader('Content-Type', 'application/json');
-   // var keyword1 =req.params.keyword1;
+    // var keyword1 =req.params.keyword1;
     //var keyword2 =req.query.keyword2;
     Selling.aggregate([{
         $lookup: {
-            from: "sneakerdb",
-            localField: "article_number",
-            foreignField: "article_number",
-            as: "Sneakers Info:"
+            from: 'sneakerdb',
+            localField: 'article_number',
+            foreignField: 'article_number',
+            as: 'Sneakers Info:'
         }
     },{
         $project:{
-            "brand": 0,
-            "series": 0,
-            "name":0,
-            "article_number":0
+            'brand': 0,
+            'series': 0,
+            'name':0,
+            'article_number':0
         }
     },{
         $sort : {
@@ -96,7 +96,7 @@ router.findSellingSneakerInfoByPrice = (req, res) => {
             res.send(JSON.stringify(selling, null, 5));
     });
 
-}
+};
 router.incrementSellingAmount = (req, res) => {
 
     Selling.findById(req.params._id, function(err,selling) {
@@ -112,13 +112,13 @@ router.incrementSellingAmount = (req, res) => {
             });
         }
     });
-}
+};
 router.addSelling = (req, res) => {
 
     res.setHeader('Content-Type', 'application/json');
 
     var selling = new Selling();
-	selling._id = req.body._id;
+    selling._id = req.body._id;
     selling.brand = req.body.brand;
     selling.series = req.body.series;
     selling.name = req.body.name;
@@ -134,7 +134,7 @@ router.addSelling = (req, res) => {
         else
             res.json({ message: 'Selling Info Successfully Added!', data: selling });
     });
-}
+};
 router.deleteSelling = (req, res) => {
 
     Selling.findByIdAndRemove(req.params._id, function(err) {
@@ -143,11 +143,11 @@ router.deleteSelling = (req, res) => {
         else
             res.json({ message: 'Selling Info Successfully Deleted!'});
     });
-}
+};
 router.editSelling = (req,res)=>{
     Selling.findById(req.params._id, function(err,selling) {
         if (err)
-            res.json({ message: "Selling Info NOT Found!", errmsg : err } );
+            res.json({ message: 'Selling Info NOT Found!', errmsg : err } );
         else {
             selling.brand = req.body.brand;
             selling.series = req.body.series;
@@ -159,11 +159,11 @@ router.editSelling = (req,res)=>{
             selling.selling_amount = req.body.selling_amount;
             selling.save(function (err) {
                 if (err)
-                    res.json({ message: "Selling Info Location NOT Change!", errmsg : err } );
+                    res.json({ message: 'Selling Info Location NOT Change!', errmsg : err } );
                 else
-                    res.json({ message: "Selling Info Location Successfully Change!", data: selling });
+                    res.json({ message: 'Selling Info Location Successfully Change!', data: selling });
             });
         }
     });
-}
+};
 module.exports = router;

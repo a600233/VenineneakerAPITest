@@ -1,5 +1,5 @@
-let Account = require('../models/account');
-let express = require('express');
+import Account from '../models/account';
+import express from 'express';
 let router = express.Router();
 let mongoose = require('mongoose');
 //mongoose.connect('mongodb://localhost:27017/sellingdb');
@@ -24,18 +24,18 @@ router.findAllAccount = (req, res) => {
 
         res.send(JSON.stringify(account,null,5));
     });
-}
+};
 router.findOneByAccountId = (req, res) => {
 
     res.setHeader('Content-Type', 'application/json');
 
-    Account.find({ "_id" : req.params._id },function(err, account) {
+    Account.find({ '_id' : req.params._id },function(err, account) {
         if (err)
             res.json({ message: 'Selling Info NOT Found!', errmsg : err } );
         else
             res.send(JSON.stringify(account,null,5));
     });
-}
+};
 router.findAccountByAccountName = (req, res) => {
 
     res.setHeader('Content-Type', 'application/json');
@@ -44,66 +44,38 @@ router.findAccountByAccountName = (req, res) => {
         $or:[
             {account_name:{$regex:keywrod1,$options:'$i'}}
         ]
-    }
+    };
     Account.find(_filter1).limit(5).exec(function (err,account) {
         if(err)
             res.json({message: 'Account Info NOT Found!',errmsg: err});
         else
             res.send(JSON.stringify(account,null,5));
-    })
-}
+    });
+};
 router.findSellingInfoByAccount = (req, res) => {
 
     res.setHeader('Content-Type', 'application/json');
     Account.aggregate([
         {
-        $lookup: {
-            from: "sellingdb",
-            localField: "account_name",
-            foreignField: "account_name",
-            as: "Selling Info:"
-           },
-        },{
-            $lookup:{ from: "orderdb",
-                localField: "account_name",
-                foreignField: "seller_account_name",
-                as: "Order Info:"
-            }
-        },{
-            $project:{
-                "_id":0,
-                "selling":0,
-                "buying":0,
-                "following_sneakers":0,
-                "registration_date":0
-            }
-        }
-        ],function (err,account) {
-        if(err)
-            res.json({errmsg: err});
-        else
-            res.send(JSON.stringify(account, null, 5));
-    });
-
-}
-router.findBuyingInfoByAccount = (req, res) => {
-
-    res.setHeader('Content-Type', 'application/json');
-    Account.aggregate([
-        {
             $lookup: {
-                from: "orderdb",
-                localField: "account_name",
-                foreignField: "buyer_account_name",
-                as: "Buying Info:"
+                from: 'sellingdb',
+                localField: 'account_name',
+                foreignField: 'account_name',
+                as: 'Selling Info:'
             },
         },{
+            $lookup:{ from: 'orderdb',
+                localField: 'account_name',
+                foreignField: 'seller_account_name',
+                as: 'Order Info:'
+            }
+        },{
             $project:{
-                "_id":0,
-                "selling":0,
-                "buying":0,
-                "following_sneakers":0,
-                "registration_date":0
+                '_id':0,
+                'selling':0,
+                'buying':0,
+                'following_sneakers':0,
+                'registration_date':0
             }
         }
     ],function (err,account) {
@@ -113,7 +85,35 @@ router.findBuyingInfoByAccount = (req, res) => {
             res.send(JSON.stringify(account, null, 5));
     });
 
-}
+};
+router.findBuyingInfoByAccount = (req, res) => {
+
+    res.setHeader('Content-Type', 'application/json');
+    Account.aggregate([
+        {
+            $lookup: {
+                from: 'orderdb',
+                localField: 'account_name',
+                foreignField: 'buyer_account_name',
+                as: 'Buying Info:'
+            },
+        },{
+            $project:{
+                '_id':0,
+                'selling':0,
+                'buying':0,
+                'following_sneakers':0,
+                'registration_date':0
+            }
+        }
+    ],function (err,account) {
+        if(err)
+            res.json({errmsg: err});
+        else
+            res.send(JSON.stringify(account, null, 5));
+    });
+
+};
 router.addAccount = (req, res) => {
 
     res.setHeader('Content-Type', 'application/json');
@@ -135,7 +135,7 @@ router.addAccount = (req, res) => {
         else
             res.json({ message: 'Account Info Successfully Added!', data: account });
     });
-}
+};
 router.deleteAccount = (req, res) => {
 
     Account.findByIdAndRemove(req.params._id, function(err) {
@@ -144,6 +144,6 @@ router.deleteAccount = (req, res) => {
         else
             res.json({ message: 'Account Info Successfully Deleted!'});
     });
-}
+};
 
 module.exports = router;

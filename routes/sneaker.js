@@ -1,5 +1,5 @@
-let Sneaker = require('../models/sneaker');
-let express = require('express');
+import Sneaker from '../models/sneaker';
+import express from 'express';
 let router = express.Router();
 let mongoose = require('mongoose');
 //mongoose.connect('mongodb://localhost:27017/sellingdb');
@@ -24,7 +24,7 @@ router.findAllSneaker = (req, res) => {
 
         res.send(JSON.stringify(sneaker,null,5));
     });
-}
+};
 
 router.findSpecificSneakerInfo = (req, res) => {
 
@@ -38,23 +38,23 @@ router.findSpecificSneakerInfo = (req, res) => {
             {color:{$regex:keyword,$options:'$i'}},
             {article_number:{$regex:keyword,$options:'$i'}},
         ]
-    }
+    };
     Sneaker.find(_filter1).limit(5).exec(function (err,sneaker) {
         if(err)
             res.json({message: 'Sneaker Info NOT Found!',errmsg: err});
         else
             res.send(JSON.stringify(sneaker,null,5));
-    })
-}
+    });
+};
 router.findSneakerIsSelling = (req, res) => {
 
     res.setHeader('Content-Type', 'application/json');
     Sneaker.aggregate([{
         $lookup: {
-            from: "sellingdb",
-            localField: "article_number",
-            foreignField: "article_number",
-            as: "Sneakers are selling:"
+            from: 'sellingdb',
+            localField: 'article_number',
+            foreignField: 'article_number',
+            as: 'Sneakers are selling:'
         }
     }],function (err,sneaker) {
         if(err)
@@ -63,24 +63,24 @@ router.findSneakerIsSelling = (req, res) => {
             res.send(JSON.stringify(sneaker, null, 5));
     });
 
-}
+};
 router.findSneakerByTime = (req, res) => {
     res.setHeader('Content-Type', 'application/json');
     var keyword1 = req.params.keyword1;
     var keyword2 = req.params.keyword2;
-    Sneaker.find({ "release_date" : {"$gte":new Date(keyword2), "$lte" : new Date(keyword1) } },function(err, sneaker) {
+    Sneaker.find({ 'release_date' : {'$gte':new Date(keyword2), '$lte' : new Date(keyword1) } },function(err, sneaker) {
         if (err)
             res.send({message: 'No Sneaker releases during that time!',errmsg:err});
 
         res.send(JSON.stringify(sneaker,null,5));
     });
-}
+};
 router.addSneaker = (req, res) => {
 
     res.setHeader('Content-Type', 'application/json');
 
     var sneaker = new Sneaker();
-	sneaker._id = req.body._id;
+    sneaker._id = req.body._id;
     sneaker.brand = req.body.brand;
     sneaker.series = req.body.series;
     sneaker.name = req.body.name;
@@ -95,7 +95,7 @@ router.addSneaker = (req, res) => {
         else
             res.json({ message: 'Sneaker Info Successfully Added!', data: sneaker });
     });
-}
+};
 router.deleteSneaker = (req, res) => {
 
     Sneaker.findByIdAndRemove(req.params._id, function(err) {
@@ -104,6 +104,6 @@ router.deleteSneaker = (req, res) => {
         else
             res.json({ message: 'Sneaker Info Successfully Deleted!'});
     });
-}
+};
 
 module.exports = router;

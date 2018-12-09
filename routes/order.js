@@ -1,5 +1,5 @@
-let Order = require('../models/order');
-let express = require('express');
+import Order from '../models/order';
+import express from 'express';
 let router = express.Router();
 let mongoose = require('mongoose');
 //mongoose.connect('mongodb://localhost:27017/sellingdb');
@@ -24,18 +24,18 @@ router.findAllOrder = (req, res) => {
 
         res.send(JSON.stringify(order,null,5));
     });
-}
+};
 router.findOrderById = (req, res) => {
 
     res.setHeader('Content-Type', 'application/json');
 
-    Order.find({ "_id" : req.params._id },function(err, order) {
+    Order.find({ '_id' : req.params._id },function(err, order) {
         if (err)
             res.json({ message: 'Order Info NOT Found!', errmsg : err } );
         else
             res.send(JSON.stringify(order,null,5));
     });
-}
+};
 router.findOrderByBuyerName = (req, res) => {
 
     res.setHeader('Content-Type', 'application/json');
@@ -44,32 +44,32 @@ router.findOrderByBuyerName = (req, res) => {
         $or:[
             {buyer_account_name:{$regex:keywrod1,$options:'$i'}}
         ]
-    }
+    };
     Order.find(_filter1).limit(5).exec(function (err,order) {
         if(err)
             res.json({message: 'Order Info NOT Found!',errmsg: err});
         else
             res.send(JSON.stringify(order,null,5));
-    })
-}
+    });
+};
 router.findSpecificOrderInfo = (req, res) => {
 
     res.setHeader('Content-Type', 'application/json');
     Order.aggregate([{
         $lookup: {
-            from: "accountdb",
-            localField: "buyer_account_name",
-            foreignField: "account_name",
-            as: "Buying Info:"
+            from: 'accountdb',
+            localField: 'buyer_account_name',
+            foreignField: 'account_name',
+            as: 'Buying Info:'
         },
-        }],function (err,order) {
+    }],function (err,order) {
         if(err)
             res.json({errmsg: err});
         else
             res.send(JSON.stringify(order, null, 5));
     });
 
-}
+};
 
 router.incrementAmounts = (req, res) => {
 
@@ -86,13 +86,13 @@ router.incrementAmounts = (req, res) => {
             });
         }
     });
-}
+};
 router.addOrder = (req, res) => {
 
     res.setHeader('Content-Type', 'application/json');
 
     var order = new Order();
-	order._id = req.body._id;
+    order._id = req.body._id;
     order.buyer_account_name = req.body.buyer_account_name;
     order.seller_account_name = req.body.seller_account_name;
     order.brand = req.body.brand;
@@ -110,7 +110,7 @@ router.addOrder = (req, res) => {
         else
             res.json({ message: 'Order Info Successfully Added!', data: order });
     });
-}
+};
 router.deleteOrder = (req, res) => {
 
     Order.findByIdAndRemove(req.params._id, function(err) {
@@ -119,6 +119,6 @@ router.deleteOrder = (req, res) => {
         else
             res.json({ message: 'Order Info Successfully Deleted!'});
     });
-}
+};
 
 module.exports = router;

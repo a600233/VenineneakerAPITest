@@ -1,15 +1,13 @@
-let chai = require('chai');
-let chaiHttp = require('chai-http');
-let server = require('../../bin/www');
+import chai from 'chai';
+import chaiHttp from 'chai-http' ;
+import server from '../../bin/www';
 let expect = chai.expect;
-//let datastore = require('mongoose');
-//datastore.connect('mongodb://a600233:cs748596123@ds225703.mlab.com:25703/sellingdb');
 chai.use(chaiHttp);
 chai.use(require('chai-things'));
-let _ = require('lodash' );	
+import _ from 'lodash';
 
 describe('Sneaker', function (){
-  
+
     describe('GET /sneaker',  () => {
         it('should return all the sneakers in an array', function(done) {
             chai.request(server)
@@ -20,7 +18,7 @@ describe('Sneaker', function (){
     expect(res.body.length).to.equal(7);
     let result = _.map(res.body, (sneaker) => {
         return { brand: sneaker.brand,
-            article_number: sneaker.article_number } 
+            article_number: sneaker.article_number }
         });
     expect(result).to.include( { brand: 'Converse', article_number: '162131C' } );
 	expect(result).to.include( { brand: 'Nike', article_number: 'BQ2718-200' } );
@@ -28,10 +26,10 @@ describe('Sneaker', function (){
 });
         });
     });
-	
+
 	describe('POST /sneaker', function () {
         it('should return confirmation message and update db', function(done) {
-            let sneaker = {            
+            let sneaker = {
 		_id: 60000008,
 		brand: "Nike",
 		series: "Air Jordan 4 Retro",
@@ -64,7 +62,7 @@ describe('Sneaker', function (){
                 });
         });
     });
-	
+
 	describe('DELETE /sneaker/:_id',  function() {
         it('should return confirmation message of deleting and update ', function(done) {
             chai.request(server)
@@ -89,7 +87,7 @@ describe('Sneaker', function (){
                 });
         });
 		 });
-		 
+
 
 		 describe('DELETE /sneaker/:_id',  function() {
 	  it('should return fault and a message for invalid sneaker id',function(done){
@@ -101,7 +99,7 @@ describe('Sneaker', function (){
 					done();
 				});
 			});
-		}); 
+		});
 
 		describe('GET /sneaker/find/:keyword',  () => {
         it('should return one specific sneaker info by fuzzy searching in an array', function(done) {
@@ -112,7 +110,7 @@ describe('Sneaker', function (){
 		expect(res.body).to.be.a('array');
 		let result = _.map(res.body, (sneaker) => {
 			return { brand: sneaker.brand,
-            article_number: sneaker.article_number } 
+            article_number: sneaker.article_number }
         });
 		expect(res.body.length).to.equal(1);
 		expect(result).to.include( { brand: 'Converse', article_number: '162131C' } );
@@ -121,7 +119,7 @@ describe('Sneaker', function (){
         });
     });
 
-		
+
 	describe('GET /sneaker/s_t/:keyword1/:keyword2',  () => {
         it('should return sneakers info IN specific TIME in an array', function(done) {
             chai.request(server)
@@ -131,7 +129,7 @@ describe('Sneaker', function (){
 		expect(res.body).to.be.a('array');
 		let result = _.map(res.body, (sneaker) => {
 			return { brand: sneaker.brand,
-            article_number: sneaker.article_number } 
+            article_number: sneaker.article_number }
         });
 		expect(res.body.length).to.equal(2);
 		expect(result).to.include( { brand: 'Converse', article_number: '162131C' } );
@@ -140,7 +138,7 @@ describe('Sneaker', function (){
 });
         });
     });
-	
+
 	describe('GET /sneaker/s_t/:keyword1/:keyword2',  () => {
         it('should return sneakers info just ON the boundary test of TIME in an array', function(done) {
             chai.request(server)
@@ -150,7 +148,7 @@ describe('Sneaker', function (){
 		expect(res.body).to.be.a('array');
 		let result = _.map(res.body, (sneaker) => {
 			return { brand: sneaker.brand,
-            article_number: sneaker.article_number } 
+            article_number: sneaker.article_number }
         });
 		expect(res.body.length).to.equal(2);
 		expect(result).to.include( { brand: 'Converse', article_number: '162131C' } );
@@ -159,7 +157,7 @@ describe('Sneaker', function (){
 });
         });
     });
-	
+
 	describe('GET /sneaker/s_t/:keyword1/:keyword2',  () => {
         it('should return sneakers info OUT of the boundary of TIME in an array', function(done) {
             chai.request(server)

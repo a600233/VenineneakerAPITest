@@ -1,15 +1,13 @@
-let chai = require('chai');
-let chaiHttp = require('chai-http');
-let server = require('../../bin/www');
+import chai from 'chai';
+import chaiHttp from 'chai-http' ;
+import server from '../../bin/www';
 let expect = chai.expect;
-//let datastore = require('mongoose');
-//datastore.connect('mongodb://a600233:cs748596123@ds225703.mlab.com:25703/sellingdb');
 chai.use(chaiHttp);
 chai.use(require('chai-things'));
-let _ = require('lodash' );	
+import _ from 'lodash';
 
 describe('Order', function (){
-  
+
     describe('GET /order',  () => {
         it('should return all the orders in an array', function(done) {
             chai.request(server)
@@ -20,7 +18,7 @@ describe('Order', function (){
     expect(res.body.length).to.equal(2);
     let result = _.map(res.body, (order) => {
         return { buyer_account_name: order.buyer_account_name,
-            seller_account_name: order.seller_account_name } 
+            seller_account_name: order.seller_account_name }
         });
     expect(result).to.include( { buyer_account_name: 'ZiTing-Wang', seller_account_name: 'JIE_Bao' } );
 	expect(result).to.include( { buyer_account_name: 'Yan.Liu', seller_account_name: 'JIE_Bao' } );
@@ -28,10 +26,10 @@ describe('Order', function (){
 });
         });
     });
-	
+
 	describe('POST /order', function () {
         it('should return confirmation message and update db', function(done) {
-            let order = {            
+            let order = {
 	_id:3000003,
     buyer_account_name: "Eminem",
     seller_account_name: "Marshall_Yin",
@@ -67,7 +65,7 @@ describe('Order', function (){
                 });
         });
     });
-	
+
 	describe('PUT /order/:_id/amount', () => {
       it('should return a message and the order amount increased by 1', function(done) {
          chai.request(server)
@@ -114,8 +112,8 @@ describe('DELETE /order/:_id',  function() {
                 });
         });
 		 });
-		 
-		 
+
+
 		 describe('DELETE /order/:_id',  function() {
 	  it('should return fault and a message for invalid order id',function(done){
 				chai.request(server)
@@ -127,7 +125,7 @@ describe('DELETE /order/:_id',  function() {
 				});
 			});
 		});
-		
+
 		describe('GET /order/:_id',  () => {
         it('should return one the order info in an array', function(done) {
             chai.request(server)
@@ -138,7 +136,7 @@ describe('DELETE /order/:_id',  function() {
 		expect(res.body.length).to.equal(1);
 		let result = _.map(res.body, (order) => {
 			return { buyer_account_name: order.buyer_account_name,
-                            seller_account_name: order.seller_account_name} 
+                            seller_account_name: order.seller_account_name}
         });
 		expect(res.body.length).to.equal(1);
 		expect(result).to.include( {buyer_account_name: 'ZiTing-Wang', seller_account_name: 'JIE_Bao'} );
@@ -146,7 +144,7 @@ describe('DELETE /order/:_id',  function() {
 });
         });
     });
-	
+
 		describe('GET /order/b_n/:buyer_account_name',  () => {
         it('should return one specific order info by searching buyer name in an array', function(done) {
             chai.request(server)
@@ -156,15 +154,15 @@ describe('DELETE /order/:_id',  function() {
 		expect(res.body).to.be.a('array');
 		let result = _.map(res.body, (order) => {
 			return { buyer_account_name: order.buyer_account_name,
-                            seller_account_name: order.seller_account_name } 
+                            seller_account_name: order.seller_account_name }
         });
 		expect(res.body.length).to.equal(1);
 		expect(result).to.include( {buyer_account_name: 'Yan.Liu', seller_account_name: 'JIE_Bao' } );
 		done();
 });
         });
-    });	
-	
+    });
+
 		describe('GET /order/s_o/info',  () => {
         it('should return all orders info with account info in an array', function(done) {
             chai.request(server)
@@ -174,7 +172,7 @@ describe('DELETE /order/:_id',  function() {
 		expect(res.body).to.be.a('array');
 		let result = _.map(res.body, (order) => {
 			return { buyer_account_name: order.buyer_account_name,
-            seller_account_name: order.seller_account_name } 
+            seller_account_name: order.seller_account_name }
         });
 		expect(res.body.length).to.equal(2);
 		expect(result).to.include( { buyer_account_name: 'ZiTing-Wang', seller_account_name: 'JIE_Bao' } );
