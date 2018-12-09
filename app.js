@@ -1,4 +1,4 @@
-/ eslint no-unused-vars：“off” /
+/ eslint no-unused-vars：“off” /;
 var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
@@ -10,10 +10,10 @@ var usersRouter = require('./routes/users');
 //var cors = require('cors');
 
 
-const selling = require("./routes/selling");
-const account = require("./routes/account");
-const order = require("./routes/order");
-const sneaker = require("./routes/sneaker");
+const selling = require('./routes/selling');
+const account = require('./routes/account');
+const order = require('./routes/order');
+const sneaker = require('./routes/sneaker');
 
 var app = express();
 
@@ -40,7 +40,7 @@ app.post('/selling',selling.addSelling);
 app.delete('/selling/:_id', selling.deleteSelling);
 app.get('/selling/s_s/show', selling.findSellingSneakerInfoByPrice);
 app.put('/selling/:_id/selling_amount', selling.incrementSellingAmount);
-app.put('/selling/:_id',selling.editSelling)
+app.put('/selling/:_id',selling.editSelling);
 
 app.get('/account',account.findAllAccount);
 app.post('/account',account.addAccount);
@@ -65,18 +65,18 @@ app.get('/sneaker/find/:keyword',sneaker.findSpecificSneakerInfo);
 app.get('/sneaker/s_t/:keyword1/:keyword2',sneaker.findSneakerByTime);
 
 app.use(function(req, res, next) {
-  next(createError(404));
+    next(createError(404));
 });
 
 // error handler
-app.use(function(err, req, res, next) {
-  // set locals, only providing error in development
-  res.locals.message = err.message;
-  res.locals.error = req.app.get('env') === 'development' ? err : {};
+app.use(function(err, req, res) {
+    // set locals, only providing error in development
+    res.locals.message = err.message;
+    res.locals.error = req.app.get('env') === 'development' ? err : {};
 
-  // render the error page
-  res.status(err.status || 500);
-  res.render('error');
+    // render the error page
+    res.status(err.status || 500);
+    res.render('error');
 });
 
 module.exports = app;
