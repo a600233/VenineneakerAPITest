@@ -93,15 +93,21 @@ describe('Selling', function (){
                 name: 'White Black',
                 size: 39,
                 article_number: '1298306-102',
-                selling_price: 140,
+                selling_price: 142,
                 account_name: 'Yan.Liu',
                 selling_amount: 2,
             };
             chai.request(server)
                 .put('/selling/1000002')
+				.send(selling)
                 .end(function(err, res) {
                     expect(res).to.have.status(200);
                     expect(res.body).to.have.property('message').equal('Selling Info Location Successfully Change!' );
+					let result = _.map(res.body, (selling) => {
+                        return { size: selling.size,
+                            selling_price: selling.selling_price };
+                    }  );
+                    expect(result).to.include( { size: 39, selling_price: 142} );
                     done();
                 });
         });

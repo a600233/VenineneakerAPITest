@@ -1,7 +1,7 @@
-# Assignment 1 - API testing and Source Control.
+ #Assignment 2 - Web API - Automated development process.
 <br>
 
-## Name:  Wujiuge Yin ##
+## Name: ...Wujiuge Yin... ##
 
 
 ### Overview ###
@@ -13,64 +13,63 @@
 <br>
 
 ## API endpoints ##
-<br>
 
-```javascript
-app.get('/selling', selling.findAll);//Show all selling information.
+**GET/selling - Show all selling information.**
 
-app.get('/selling/:_id', selling.findOneById);//Find a set of selling data by id.
+**GET/selling/:_id - Find a set of selling data by id.**
 
-app.get('/selling/info/:keyword', selling.findSellingInfo);//Fuzzy search for selling details by sneakers’ keyword.
+**GET/selling/info/:keyword - Fuzzy search for selling details by sneakers’ keyword.**
 
-app.get('/selling/sort/:selling_price', selling.sortAllPrice);//Sort all selling price.
+**GET/selling/sort/:selling_price - Sort all selling price.
 
-app.post('/selling',selling.addSelling);//Add a set of selling information.
+**post/selling - Add a set of selling information.
 
-app.delete('/selling/:_id', selling.deleteSelling);//Delete a set of information by id.
+**delete/selling/:_id - Delete a set of information by id.
 
-app.get('/selling/s_s/show', selling.findSellingSneakerInfoByPrice);//Selling with sneakers information and sorted by selling price.
+**GET/selling/s_s/show - Selling with sneakers information and sorted by selling price.
 
 
-app.put('/selling/:_id/selling_amount', selling.incrementSellingAmount);//Using put() to increse selling amount by id
+**put/selling/:_id/selling_amount - Using put() to increse selling amount by id
 
-app.get('/account',account.findAllAccount);//Show all accounts information.
+**GET/account - Show all accounts information.
 
-app.post('/account',account.addAccount);//Add a set of account information.
+**post/account - Add a set of account information.
 
-app.delete('/account/:_id', account.deleteAccount);//Delete a set of account information by id.
+**delete/account/:_id - Delete a set of account information by id.
 
-app.get('/account/:_id',account.findOneByAccountId);//Find a set of account information by id.
+**GET/account/:_id - Find a set of account information by id.
 
-app.get('/account/an/:account_name',account.findAccountByAccountName);//Fuzzy search for account details by account name.
+**GET/account/an/:account_name - Fuzzy search for account details by account name.
 
-app.get('/account/s_a/show',account.findSellingInfoByAccount);//Using aggregate() show accounts, selling and orders’ information together. (Hiding users’ account id, following sneakers and registration date.)
+**GET/account/s_a/show - Using aggregate() show accounts, selling and orders’ information together. (Hiding users’ account id, following sneakers and registration date.)
 
-app.get('/account/b_a/show',account.findBuyingInfoByAccount);//Using aggregate() show accounts, buying(order) information together. (Hiding users’ account id, following sneakers and registration date.)
+**GET/account/b_a/show',account.findBuyingInfoByAccount); - Using aggregate() show accounts, buying(order) information together. (Hiding users’ account id, following sneakers and registration date.)
 
 
-app.get('/order',order.findAllOrder);//Show all orders information.
+**GET/order',order.findAllOrder); - Show all orders information.
 
-app.post('/order',order.addOrder);//Add a set of order information.
+**post/order',order.addOrder); - Add a set of order information.
 
-app.delete('/order/:_id', order.deleteOrder);//Delete a set of order information by id.
+**delete/order/:_id', order.deleteOrder); - Delete a set of order information by id.
 
-app.get('/order/:_id',order.findOrderById);//Find a set of order information by Objectid.
+**GET/order/:_id',order.findOrderById); - Find a set of order information by Objectid.
 
-app.get('/order/b_n/:buyer_account_name',order.findOrderByBuyerName);//Fuzzy search for account details by buyers’ names.
+**GET/order/b_n/:buyer_account_name',order.findOrderByBuyerName); - Fuzzy search for account details by buyers’ names.
 
-app.put('/order/:_id/amount',order.incrementAmounts);//Using put() to increase order amount.
+**put/order/:_id/amount',order.incrementAmounts); - Using put() to increase order amount.
 
-app.get('/order/s_o/info',order.findSpecificOrderInfo);//Using aggregate() show order and account information together.
+**GET/order/s_o/info',order.findSpecificOrderInfo); - Using aggregate() show order and account information together.
 
-app.get('/sneaker',sneaker.findAllSneaker);//Show all accounts information.
+**GET/sneaker',sneaker.findAllSneaker); - Show all accounts information.
 
-app.post('/sneaker',sneaker.addSneaker);//Add a set of sneaker information.
+**post/sneaker',sneaker.addSneaker); - Add a set of sneaker information.
 
-app.delete('/sneaker/:_id', sneaker.deleteSneaker);//Delete a set of sneaker information by id.
+**delete/sneaker/:_id', sneaker.deleteSneaker); - Delete a set of sneaker information by id.
 
-app.get('/sneaker/find/:keyword',sneaker.findSpecificSneakerInfo);//Fuzzy search for account details by sneakers’ keywords.
+**GET/sneaker/find/:keyword',sneaker.findSpecificSneakerInfo); - Fuzzy search for account details by sneakers’ keywords.
 
-app.get('/sneaker/s_t/:keyword1/:keyword2',sneaker.findSneakerByTime);//Input the period, and show the sneakers released during that time.
+**GET/sneaker/s_t/:keyword1/:keyword2',sneaker.findSneakerByTime); - Input the period, and show the sneakers released during that time. 
+
 ```
 ## Data storage.
 ```
