@@ -1,7 +1,7 @@
  # Assignment 2 - Web API - Automated development process.
-<br>
 
 ## Name: Wujiuge Yin  ##
+## Student No.: 20082255  ##
 <br>
 
 ## Overview ##
@@ -71,18 +71,22 @@
 **+ GET /sneaker/find/:keyword - Fuzzy search for account details by sneakers’ keywords.**
 
 **+ GET /sneaker/s_t/:time1/:time2  - Input the period, and show the sneakers released during that time.** 
-
-
+<br>
+<br>
 
 ## Continuous Integration and Test results.
 
 
-[Travis build page for web API](https://travis-ci.org/a600233/VenineneakerAPITest)
+[Travis Build Page for Web API](https://travis-ci.org/a600233/VenineneakerAPITest)
 <br><br>
-[Test coverage results on Coveralls](https://coveralls.io/github/a600233/donationsAPI)
-
-
+[Test Coverage Results on Coveralls](https://coveralls.io/github/a600233/donationsAPI)
 <br>
+
+## Github
+
+### [My Github Link for API Test](https://github.com/a600233/VeninesneakerVueTest)
+<br>
+
 
 ```
  Account
