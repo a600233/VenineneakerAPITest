@@ -80,8 +80,11 @@
 [Travis build page for web API](https://travis-ci.org/a600233/VenineneakerAPITest)
 <br><br>
 [Test coverage results on Coveralls](https://coveralls.io/github/a600233/donationsAPI)
+<br>
 
+## Github
 
+### [My Github Link for Vue Client](https://github.com/a600233/VeninesneakerVueTest)
 <br>
 
 ```
